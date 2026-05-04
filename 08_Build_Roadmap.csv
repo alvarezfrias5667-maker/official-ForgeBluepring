@@ -1,1 +1,6 @@
-
+Step,Task,Outcome
+1,Lock routes and open Blueprint flow,User can enter /app
+2,Validate ZIP download,ZIP works with 11 files
+3,Improve content quality,Feels premium
+4,Enable payment flow,Users can unlock
+5,Launch MVP,Ready for users
