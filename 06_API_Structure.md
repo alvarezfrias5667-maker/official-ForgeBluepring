@@ -1,136 +1,160 @@
--- FORGEBLUEPRINT — PRODUCTION-READY SUPABASE SCHEMA
+# API STRUCTURE — FORGEBLUEPRINT (PRO)
 
-create extension if not exists "pgcrypto";
+## SYSTEM PRINCIPLE
+The API is not a feature layer.  
+It is a CONTROL layer for execution, payment, and delivery.
 
---------------------------------------------------
--- USER ACCESS (Blueprint monetization control)
---------------------------------------------------
+It must support ONE thing:
+👉 A complete flow from idea → blueprint → payment → delivery.
 
-create table if not exists public.user_access (
-  id uuid primary key default gen_random_uuid(),
+---
 
-  user_id uuid not null unique
-    references auth.users(id) on delete cascade,
+## CORE SERVICES
 
-  status text not null default 'inactive',
+### documentEngine.js
+Role:
+Generate the full 11-file blueprint package.
 
-  blueprint_plan text,
-  blueprint_credits integer not null default 0,
-  blueprint_used integer not null default 0,
+Critical rules:
+- Must NEVER output empty files
+- Must NEVER use fallback-only content
+- Must validate content before ZIP creation
 
-  has_access boolean generated always as (blueprint_credits > blueprint_used) stored,
+Exports:
+- createFinalPackage()
+- createBlueprintPackage()
+- getDecisionSummaryData()
+- getExecutionPromptsData()
+- generateDeveloperMarkdown()
+- generateRoadmapCSV()
 
-  provider text default 'paypal',
-  provider_ref text unique,
+---
 
-  paid_at timestamptz,
-  expires_at timestamptz,
+### accessResolver.js
+Role:
+Control user access to blueprint delivery.
 
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
+Must return:
+- hasBlueprintAccess (boolean)
+- blueprintCredits (number)
+- canDownload (derived)
 
---------------------------------------------------
--- PROJECT STORAGE (CORE SYSTEM MEMORY)
---------------------------------------------------
+Logic:
+User can download ONLY if:
+credits > used
 
-create table if not exists public.projects (
-  id uuid primary key default gen_random_uuid(),
+---
 
-  user_id uuid
-    references auth.users(id) on delete cascade,
+### PaymentSuccessPage.jsx
+Role:
+Bridge between PayPal and system access.
 
-  project_name text not null,
-  project_type text,
+Must:
+- read PayPal provider_ref
+- update user_access
+- increment blueprint_credits
+- persist access locally
 
-  form_data jsonb not null default '{}'::jsonb,
-  blueprint_data jsonb not null default '{}'::jsonb,
+Must NOT:
+- grant access without payment confirmation
+- mix blueprint with other product logic
 
-  status text default 'draft',
+---
 
-  created_at timestamptz not null default now(),
-  updated_at timestamptz not null default now()
-);
+## CORE API ENDPOINTS
 
---------------------------------------------------
--- DOWNLOAD TRACKING (REAL USAGE SIGNAL)
---------------------------------------------------
+### POST /api/blueprint/generate
+Purpose:
+Generate structured blueprint before delivery
 
-create table if not exists public.download_logs (
-  id uuid primary key default gen_random_uuid(),
+Input:
+{
+  formData: {},
+  userContext: {}
+}
 
-  user_id uuid
-    references auth.users(id) on delete cascade,
+Output:
+{
+  blueprint: {},
+  decision: "BUILD | FIX | KILL"
+}
 
-  project_id uuid
-    references public.projects(id) on delete cascade,
+---
 
-  file_name text,
-  downloaded_at timestamptz default now()
-);
+### POST /api/payment/create
+Purpose:
+Create PayPal order
 
---------------------------------------------------
--- INDEXES
---------------------------------------------------
+Output:
+{
+  approvalUrl: string
+}
 
-create index if not exists idx_user_access_user on public.user_access(user_id);
-create index if not exists idx_projects_user on public.projects(user_id);
-create index if not exists idx_downloads_user on public.download_logs(user_id);
+---
 
---------------------------------------------------
--- UPDATED_AT TRIGGER
---------------------------------------------------
+### POST /api/payment/verify
+Purpose:
+Confirm PayPal payment
 
-create or replace function set_updated_at()
-returns trigger as $$
-begin
-  new.updated_at = now();
-  return new;
-end;
-$$ language plpgsql;
+Input:
+{
+  providerRef: string
+}
 
-drop trigger if exists trg_user_access_updated on public.user_access;
-create trigger trg_user_access_updated
-before update on public.user_access
-for each row execute function set_updated_at();
+Output:
+{
+  status: "success",
+  creditsAdded: number
+}
 
-drop trigger if exists trg_projects_updated on public.projects;
-create trigger trg_projects_updated
-before update on public.projects
-for each row execute function set_updated_at();
+---
 
---------------------------------------------------
--- RLS POLICIES (CRÍTICO)
---------------------------------------------------
+### POST /api/download/log
+Purpose:
+Track ZIP download
 
-alter table public.user_access enable row level security;
-alter table public.projects enable row level security;
-alter table public.download_logs enable row level security;
+---
 
--- USER ACCESS
-create policy "read_own_access"
-on public.user_access
-for select
-using (auth.uid() = user_id);
+## EXECUTION RULES
 
--- PROJECTS
-create policy "read_own_projects"
-on public.projects
-for select
-using (auth.uid() = user_id);
+1. NO analytics endpoints
+2. NO admin APIs
+3. NO team systems
+4. NO marketplace logic
+5. NO background jobs
+6. NO AI chat endpoints
 
-create policy "insert_own_projects"
-on public.projects
-for insert
-with check (auth.uid() = user_id);
+---
 
--- DOWNLOADS
-create policy "insert_download_logs"
-on public.download_logs
-for insert
-with check (auth.uid() = user_id);
+## FAILURE CONDITIONS
 
-create policy "read_own_downloads"
-on public.download_logs
-for select
-using (auth.uid() = user_id);
+System fails if:
+- ZIP is generated with empty files
+- Payment is accepted but access not granted
+- User loses data after payment
+- Endpoint returns generic output
+
+---
+
+## SUCCESS CONDITION
+
+User completes:
+
+Input → Result → Payment → ZIP Download
+
+WITHOUT:
+- friction
+- confusion
+- manual intervention
+
+---
+
+## FINAL RULE
+
+The API must protect:
+
+👉 VALUE  
+👉 ACCESS  
+👉 DELIVERY  
+
+Everything else is noise.
