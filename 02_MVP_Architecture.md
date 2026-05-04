@@ -43,6 +43,29 @@ Step 8: User downloads the ZIP package.
 ## MVP Scope
 Build only the journey needed to generate, display, and download the blueprint package.
 
+---
+## 🔒 HARD LIMITS
+
+- Max 5 screens
+- Max 1 core feature
+- Max 1 user type
+- No secondary flows
+
+## 🧪 UI SIMPLIFICATION RULE
+
+Each screen must have:
+- 1 clear purpose
+- 1 main action (CTA)
+- No optional complexity
+
+## 🚫 ARCHITECTURE FAILURE SIGNAL
+
+If:
+- more than 5 screens exist
+- user can navigate in multiple directions
+
+→ the MVP is broken
+
 ## Excluded From MVP
 - team accounts
 - admin dashboards
