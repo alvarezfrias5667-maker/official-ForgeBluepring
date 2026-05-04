@@ -228,3 +228,41 @@ WITHOUT help
 ----------------------------------------
 
 EXECUTION > EXPANSION
+
+--------------------------------------------------
+COMMON FAILURES
+--------------------------------------------------
+
+- Adding extra screens
+- Losing sessionStorage data
+- Breaking ZIP download
+- Introducing dashboards
+
+--------------------------------------------------
+REAL INPUT EXAMPLE
+--------------------------------------------------
+
+User input:
+“App to help students organize study sessions”
+
+Expected output:
+- defined MVP
+- simple flow
+- structured execution plan
+
+--------------------------------------------------
+ANTI-PATTERNS
+--------------------------------------------------
+
+DO NOT:
+- generate generic outputs
+- use placeholders
+- create vague instructions
+
+--------------------------------------------------
+SUCCESS SIGNAL
+--------------------------------------------------
+
+User says:
+“This tells me exactly what to build next”
+
