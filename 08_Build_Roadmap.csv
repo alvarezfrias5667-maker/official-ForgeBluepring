@@ -11,3 +11,9 @@
 "Launch","10","Soft Launch","Release to 10–20 users for real feedback","Collect behavior insights","At least 5 real users complete flow","Users drop before download"
 "Optimization","11","Conversion Fix","Improve friction points detected in launch","Increase completion rate","+20% completion","Users abandon before payment"
 "Scale","12","System Hardening","Remove debug logs, secure endpoints, optimize performance","Production-ready system","Stable build deployed","Crashes in production"
+Step,Task,Priority,Difficulty,Impact,Outcome
+1,Lock routes and Blueprint flow,HIGH,Low,High,User can enter /app
+2,Validate ZIP generation,HIGH,Medium,High,ZIP works with 11 files
+3,Improve content quality,MEDIUM,Medium,High,Feels premium
+4,Enable payment flow,MEDIUM,Medium,High,Users can unlock
+5,Launch MVP,HIGH,Low,High,Ready for users
