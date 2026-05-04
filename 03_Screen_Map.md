@@ -9,7 +9,7 @@
 | BlueprintDeliveryPackage | inside /system/results | Deliver product | Download ZIP | 11-file ZIP |
 | PricingPage | /pricing | Monetization gate | Choose plan | Routes to payment |
 | PaymentSuccessPage | /payment-success | Activate purchase | Confirm access | Routes back to app |
----
+
 ## 🔍 INPUT / OUTPUT LOGIC
 
 ### BlueprintForm
