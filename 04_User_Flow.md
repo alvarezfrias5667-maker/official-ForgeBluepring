@@ -25,3 +25,24 @@ The user downloads the ZIP package containing all 11 execution files.
 
 ## Step 6 — Optional GitHub
 The user can open the GitHub version without affecting ZIP delivery.
+
+---
+## ⏱ USER TIME EXPECTATION
+
+- Home → Form: 10–20 seconds
+- Form completion: 30–60 seconds
+- Result reading: 20–40 seconds
+- ZIP download: instant
+
+Total expected: under 2 minutes
+
+## ⚠️ DROP-OFF POINTS
+
+- too many form fields
+- unclear CTA
+- delayed result screen
+
+## 🧠 FLOW SUCCESS SIGNAL
+
+User never stops to think:
+“what should I do next?”
