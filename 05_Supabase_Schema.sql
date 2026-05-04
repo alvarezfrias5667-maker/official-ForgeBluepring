@@ -1,3 +1,7 @@
+-- 🔥 EXECUTION CONTEXT
+-- This schema controls access to blueprint generation.
+-- It must remain minimal and tied to the core product flow.
+-- Do not extend with unnecessary tables during MVP.
 -- FORGEBLUEPRINT — PRODUCTION-READY SUPABASE SCHEMA
 
 create extension if not exists "pgcrypto";
