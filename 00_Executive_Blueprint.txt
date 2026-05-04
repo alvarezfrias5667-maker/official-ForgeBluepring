@@ -62,3 +62,35 @@ building too much before proving the core user journey
 Build only the core blueprint delivery path. Validate that a real user can complete the journey from idea to downloadable ZIP before expanding scope.
 
 Execution precedes expansion.
+
+---
+## 🔥 EXECUTION UPGRADE
+
+## What To Build In The Next 24 Hours
+- Create a simple HomePage with 1 CTA → /app
+- Build BlueprintForm with max 5 fields:
+  - project idea
+  - target user
+  - product type
+  - monetization
+  - main risk
+- Connect form to sessionStorage (blueprintFormData)
+- Create results screen showing structured output
+- Enable ZIP download using documentEngine
+
+## What To Ignore Completely
+- dashboards
+- user profiles
+- team features
+- analytics
+- admin panels
+- notifications
+
+## First Feature (Exact Definition)
+A single input form that converts a raw idea into a structured execution blueprint and downloadable package.
+
+## Execution Constraint
+If more than 1 flow exists → simplify immediately.
+
+## Success Condition
+User goes from idea → ZIP download in under 2 minutes.
