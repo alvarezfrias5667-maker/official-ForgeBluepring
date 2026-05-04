@@ -9,3 +9,28 @@
 | BlueprintDeliveryPackage | inside /system/results | Deliver product | Download ZIP | 11-file ZIP |
 | PricingPage | /pricing | Monetization gate | Choose plan | Routes to payment |
 | PaymentSuccessPage | /payment-success | Activate purchase | Confirm access | Routes back to app |
+---
+## 🔍 INPUT / OUTPUT LOGIC
+
+### BlueprintForm
+Input:
+- project idea
+- target user
+- product type
+
+Output:
+- blueprintFormData stored
+
+### BlueprintViability
+Input:
+- blueprintFormData
+
+Output:
+- decision (BUILD / FIX / KILL)
+
+### BlueprintResults
+Input:
+- blueprintFormData + result
+
+Output:
+- structured blueprint + ZIP trigger
