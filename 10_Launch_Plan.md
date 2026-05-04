@@ -68,3 +68,23 @@ If users reach ZIP but don’t pay:
 If users pay:
 
 👉 THEN scale
+
+---
+## 🚀 FIRST 10 USERS STRATEGY
+
+1. Post in founder communities
+2. Direct message 20 builders
+3. Share before/after blueprint example
+
+## 💬 EXACT MESSAGE
+
+“I built a tool that turns any idea into a build-ready MVP blueprint in under 2 minutes. Want to test it?”
+
+## 💰 FIRST REVENUE MOMENT
+
+User downloads blueprint → sees value → pays to unlock full package
+
+## 🎯 SUCCESS METRIC
+
+- 10 users complete full flow
+- 3 users attempt payment
