@@ -158,3 +158,26 @@ The API must protect:
 👉 DELIVERY  
 
 Everything else is noise.
+
+---
+## 🔁 REAL FLOW EXECUTION
+
+BlueprintForm → BlueprintResults → documentEngine → ZIP Download
+
+## 📡 EXAMPLE FLOW
+
+User submits:
+“Marketplace for pet services”
+
+System:
+- processes input
+- generates structured blueprint
+- returns ZIP package
+
+## 🚫 API LIMITATION RULE
+
+If API does more than:
+- generate blueprint
+- handle access
+
+→ it is out of MVP scope
