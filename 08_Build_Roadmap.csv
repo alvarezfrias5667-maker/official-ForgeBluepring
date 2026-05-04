@@ -1,6 +1,13 @@
-Step,Task,Outcome
-1,Lock routes and open Blueprint flow,User can enter /app
-2,Validate ZIP download,ZIP works with 11 files
-3,Improve content quality,Feels premium
-4,Enable payment flow,Users can unlock
-5,Launch MVP,Ready for users
+"Phase","Step","Task","Description","Outcome","Success Metric","Failure Risk"
+"Foundation","1","Route Stabilization","Ensure all core routes (/app, /system/viability, /system/results) load without errors","User completes navigation without crashes","0 console errors","Broken routing or infinite redirects"
+"Foundation","2","Blueprint Form Integrity","Validate BlueprintForm captures and stores clean data in sessionStorage (blueprintFormData)","Data persists across pages","Data visible in results screen","Empty or lost blueprint data"
+"Core Engine","3","ZIP Generation Validation","Test documentEngine.js to ensure 11 valid files are generated","ZIP contains all required files","ZIP > 5KB and opens correctly","Empty ZIP or missing files"
+"Core Engine","4","Content Quality Upgrade","Improve all 11 blueprint files to feel like paid product","User perceives high value","Readable, structured output","Generic or repetitive content"
+"Delivery","5","Download Flow Stability","Ensure ZIP download works on desktop and mobile","User downloads without friction","Download triggers in <2s","Download fails or stalls"
+"Monetization","6","Access Control Activation","Integrate user_access with blueprint credits system","Only valid users can download","credits > used logic works","Users blocked incorrectly"
+"Monetization","7","Payment Flow Integration","Connect PayPal payment → PaymentSuccessPage → credit assignment","User receives credits after payment","Credits updated in DB","Payment succeeds but no access"
+"Tracking","8","Download Logging","Track downloads in download_logs table","Each download recorded","Logs created per download","No visibility on usage"
+"Validation","9","Full Flow Testing","Test full journey: Home → Form → Result → Payment → Download","User completes entire flow","1 full successful run","Broken step anywhere"
+"Launch","10","Soft Launch","Release to 10–20 users for real feedback","Collect behavior insights","At least 5 real users complete flow","Users drop before download"
+"Optimization","11","Conversion Fix","Improve friction points detected in launch","Increase completion rate","+20% completion","Users abandon before payment"
+"Scale","12","System Hardening","Remove debug logs, secure endpoints, optimize performance","Production-ready system","Stable build deployed","Crashes in production"
