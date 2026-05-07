@@ -150,3 +150,8 @@ Do not treat this repository as the full paid dynamic system.
 MIT License
 
 ForgeBlueprint™ remains a proprietary product concept and delivery system.
+
+Dynamic Build-Ready Blueprint Generator
+
+
+
