@@ -1,1 +1,503 @@
+PROM MAX PRO EXECUTION
+Public Reference Version
 
+PROJECT:
+AI SEO Audit Platform for Ecommerce Stores
+
+BLUEPRINT MODE:
+TOOL
+
+TARGET USER:
+Small ecommerce founders and agencies
+
+PRIMARY FLOW:
+Landing → URL Input → Processing → SEO Result → ZIP Download
+
+MONETIZATION:
+Free preview + paid full blueprint unlock
+
+==================================================
+PROMPT 0 — PROJECT FILE MAP
+==================================================
+
+GOAL:
+Define the exact files, routes, components, services, database tables, and delivery rules required to build this project without overbuilding.
+
+FILES TO CREATE:
+- HomePage.jsx
+- AuditInputPage.jsx
+- ProcessingPage.jsx
+- SEOResultPage.jsx
+- BlueprintDeliveryPackage.jsx
+- documentEngine.js
+- blueprintPackageContract.js
+- accessResolver.js
+- supabaseClient.js
+
+REQUIRED ROUTES:
+/
+ /app
+ /processing
+ /result
+ /pricing
+ /payment-success
+
+REQUIRED TABLES:
+- user_access
+- projects
+- download_logs
+- scan_balance
+
+REQUIRED DELIVERY FILES:
+01_Executive_Blueprint.md
+02_Product_Architecture.md
+03_Technical_Stack.md
+04_Supabase_Schema.sql
+05_Execution_Roadmap.md
+06_PROM_MAX_PRO_EXECUTION.txt
+07_Launch_System.md
+08_Build_Guide.md
+
+FILES TO PROTECT:
+- Download button
+- GitHub button
+- PayPal flow
+- auth flow
+- pricing logic
+- ZIP contract
+- route system
+
+PASS CONDITION:
+The project has a clear file map and no unnecessary modules.
+
+FAIL CONDITION:
+The project becomes a generic dashboard or multi-feature SaaS too early.
+
+==================================================
+PROMPT 1 — FOUNDATION SYSTEM
+==================================================
+
+GOAL:
+Build the technical foundation for the audit-to-blueprint flow.
+
+CONTEXT:
+This is not a general SEO platform. It is a focused decision and delivery system.
+
+FILES TO CREATE:
+- route shell
+- Supabase client
+- base layout
+- project state handling
+
+FILES TO MODIFY:
+- only foundation files required for boot and routing
+
+FILES TO PROTECT:
+- delivery buttons
+- payment logic
+- ZIP generation
+- GitHub link behavior
+
+REQUIRED BEHAVIOR:
+- app loads
+- routes resolve
+- project input persists
+- no console crashes
+
+UI RULES:
+- mobile-first
+- clean layout
+- one primary CTA per screen
+
+LOGIC RULES:
+- no duplicate Supabase clients
+- no hardcoded secrets
+- no localStorage-only access truth
+
+DATA RULES:
+- keep project payload normalized
+- preserve user input
+
+SECURITY RULES:
+- no service role keys in frontend
+- no PayPal secrets in client
+
+PASS CONDITION:
+The app loads and can route from landing to input.
+
+FAIL CONDITION:
+Any route crash, state loss, or secret exposure.
+
+FINAL INSTRUCTION:
+Build only the foundation required for the first complete flow.
+
+==================================================
+PROMPT 2 — LANDING + CONVERSION
+==================================================
+
+GOAL:
+Create a landing experience that explains the audit value in under 10 seconds.
+
+CONTEXT:
+The user must understand that the product creates a prioritized SEO blueprint, not a generic report.
+
+FILES TO CREATE:
+- hero section
+- value explanation
+- trust layer
+- CTA block
+
+FILES TO MODIFY:
+- HomePage.jsx only
+
+FILES TO PROTECT:
+- pricing logic
+- auth logic
+- delivery package
+- GitHub button
+
+REQUIRED BEHAVIOR:
+- clear headline
+- clear target user
+- clear CTA
+- no fake claims
+
+UI RULES:
+- premium spacing
+- no clutter
+- no stock-photo dependency
+- mobile-first cards
+
+LOGIC RULES:
+- CTA routes to input
+- no dead buttons
+
+DATA RULES:
+- no fake metrics
+- no fake testimonials
+
+SECURITY RULES:
+- no secrets
+- no exposed environment values
+
+PASS CONDITION:
+User knows what the product does and starts the audit.
+
+FAIL CONDITION:
+Landing feels generic or unclear.
+
+FINAL INSTRUCTION:
+Sell clarity, not complexity.
+
+==================================================
+PROMPT 3 — INTAKE ENGINE
+==================================================
+
+GOAL:
+Capture enough data to generate a useful blueprint without creating form friction.
+
+FILES TO CREATE:
+- URL input
+- goal selector
+- platform selector
+- known issue field
+
+FILES TO MODIFY:
+- AuditInputPage.jsx
+
+FILES TO PROTECT:
+- ZIP delivery
+- auth/payment
+- result rendering
+
+REQUIRED BEHAVIOR:
+- validate URL
+- capture goal
+- preserve input
+- route to processing
+
+UI RULES:
+- short form
+- clear labels
+- no multi-step overload
+
+LOGIC RULES:
+- sanitize URL
+- prevent empty submission
+- save payload before route change
+
+DATA RULES:
+- form_data json must be clean
+- no private user data required
+
+SECURITY RULES:
+- sanitize all inputs
+- never execute user-provided URL as code
+
+PASS CONDITION:
+Input generates structured analysis data.
+
+FAIL CONDITION:
+Input is lost or produces generic output.
+
+FINAL INSTRUCTION:
+Keep intake simple but decision-useful.
+
+==================================================
+PROMPT 4 — RESULTS ENGINE
+==================================================
+
+GOAL:
+Display a clear SEO verdict and next action.
+
+FILES TO CREATE:
+- result cards
+- priority section
+- risk section
+- next action section
+
+FILES TO MODIFY:
+- SEOResultPage.jsx
+
+FILES TO PROTECT:
+- download handler
+- GitHub handler
+- pricing/payment
+
+REQUIRED BEHAVIOR:
+- show score
+- show verdict
+- show first fix
+- show ignored items
+- show download CTA
+
+UI RULES:
+- executive cards
+- readable on mobile
+- no dashboard clutter
+
+LOGIC RULES:
+- score must match input
+- no random results
+- no fake metrics
+
+DATA RULES:
+- result data should be explainable
+- no unsupported claims
+
+SECURITY RULES:
+- no user secrets in output
+
+PASS CONDITION:
+User understands what to fix first.
+
+FAIL CONDITION:
+User sees vague advice.
+
+FINAL INSTRUCTION:
+Turn analysis into a decision.
+
+==================================================
+PROMPT 5 — ZIP DELIVERY SYSTEM
+==================================================
+
+GOAL:
+Deliver the 8-file blueprint package safely.
+
+FILES TO CREATE:
+- no new files unless missing
+
+FILES TO MODIFY:
+- documentEngine.js only if package content requires improvement
+
+FILES TO PROTECT:
+- createFinalPackage
+- rawFiles names
+- download button
+- GitHub button
+- JSZip flow
+
+REQUIRED BEHAVIOR:
+- exactly 8 files
+- no old 11-file structure
+- no fallback file
+- no empty content
+- readable output
+
+UI RULES:
+- preserve current buttons
+- no new modal
+- no new route
+
+LOGIC RULES:
+- validate file count
+- validate names
+- validate content length
+
+DATA RULES:
+- no secrets in ZIP
+- no production tokens
+
+SECURITY RULES:
+- keep package public-safe unless user-generated
+
+PASS CONDITION:
+ZIP downloads and extracts correctly.
+
+FAIL CONDITION:
+ZIP has old files, missing files, or fallback content.
+
+FINAL INSTRUCTION:
+The ZIP is the product. Protect it.
+
+==================================================
+PROMPT 6 — AUTH + PAYMENTS
+==================================================
+
+GOAL:
+Protect access after payment.
+
+FILES TO CREATE:
+- none unless missing
+
+FILES TO MODIFY:
+- access resolver only if broken
+- payment success only if broken
+
+FILES TO PROTECT:
+- pricing page structure
+- PayPal checkout URL
+- auth routes
+- delivery buttons
+
+REQUIRED BEHAVIOR:
+- paid user gets access
+- access persists
+- scan credits and blueprint credits stay separate
+
+UI RULES:
+- no extra friction after payment
+
+LOGIC RULES:
+- verify active access server-side
+- do not trust localStorage alone
+
+DATA RULES:
+- store provider_ref
+- store status
+- store blueprint credits
+
+SECURITY RULES:
+- webhook secret server-side only
+- no client secret exposure
+
+PASS CONDITION:
+Payment returns user to usable product access.
+
+FAIL CONDITION:
+Payment succeeds but user is sent back to pricing.
+
+FINAL INSTRUCTION:
+Payment must unlock execution, not create friction.
+
+==================================================
+PROMPT 7 — QA + STABILITY
+==================================================
+
+GOAL:
+Validate the complete MVP flow before launch.
+
+FILES TO MODIFY:
+- only files causing confirmed bugs
+
+FILES TO PROTECT:
+- working download
+- GitHub button
+- pricing
+- PayPal
+- auth
+- routes
+
+REQUIRED BEHAVIOR:
+- no console crashes
+- no route loops
+- no empty ZIP
+- no old files
+- no fallback
+
+UI RULES:
+- test mobile
+- test desktop
+- test small screens
+
+LOGIC RULES:
+- test with multiple project types
+- test after refresh
+- test after payment return
+
+DATA RULES:
+- no stale session data
+- no wrong project output
+
+SECURITY RULES:
+- confirm no secrets in repo
+
+PASS CONDITION:
+A real user completes the flow without manual help.
+
+FAIL CONDITION:
+Any core step breaks.
+
+FINAL INSTRUCTION:
+Fix only proven blockers.
+
+==================================================
+PROMPT 8 — LAUNCH HARDENING
+==================================================
+
+GOAL:
+Prepare the project for public launch and GitHub trust.
+
+FILES TO CREATE:
+- README.md
+- public reference files
+- optional screenshots
+
+FILES TO MODIFY:
+- README.md
+- GitHub public reference files
+
+FILES TO PROTECT:
+- private engine
+- production secrets
+- paid package logic
+
+REQUIRED BEHAVIOR:
+- GitHub looks professional
+- README explains the difference between public reference and app package
+- no private logic exposed
+
+UI RULES:
+- no hype
+- no fake scarcity
+- no exaggerated claims
+
+LOGIC RULES:
+- GitHub must not replace the app
+- app remains the dynamic generator
+
+DATA RULES:
+- no real production data
+- no credentials
+
+SECURITY RULES:
+- scan for secrets before push
+
+PASS CONDITION:
+GitHub increases trust and drives users back to the app.
+
+FAIL CONDITION:
+GitHub gives away the premium system or exposes secrets.
+
+FINAL INSTRUCTION:
+Use GitHub as a trust layer, not as the product.
